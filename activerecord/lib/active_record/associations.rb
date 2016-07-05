@@ -1691,7 +1691,7 @@ module ActiveRecord
         # FIXME: we should move this to the internal constants. Also people
         # should never directly access this constant so I'm not happy about
         # setting it.
-        const_set join_model.name, join_model
+        const_set(join_model.name, join_model) unless const_defined?(join_model.name)
 
         middle_reflection = builder.middle_reflection join_model
 
